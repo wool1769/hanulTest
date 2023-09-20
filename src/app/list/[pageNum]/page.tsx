@@ -17,15 +17,6 @@ interface contentData{
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
   
-  const instance = axios.create({
-    baseURL: 'https://hanul-test.vercel.app', // 동일 도메인 또는 하위 도메인
-    proxy: {
-      host: 'localhost',  // 프록시 서버 호스트 (로컬 호스트)
-      port: 443,         // 프록시 서버 포트
-    },
-  });
-    
-
     const router = useRouter();
 
 
@@ -44,14 +35,14 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
     
 
     useEffect(() => {
-      instance.post("/api/content").then(response => {
+      axios.post("/api/content").then(response => {
       let url = `/api/content?pagenum=${pageNum}`;
       if(searchPram != undefined){
         url +=`&search=${encodeURIComponent(props.searchParams.search)}`
       }
       // console.log(searchPram)
         // console.log(url)
-        instance.get(url).then(response => {
+        axios.get('/api/content').then(response => {
             let data = response.data;
             setcon(data.content);
             setCount(data.datacount);
