@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mongodb"
+  url = "mongodb+srv://admin:Qwer!234@cluster0.nem2use.mongodb.net/notice?retryWrites=true&w=majority&appName=AtlasApp"
+
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model post {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  title  String     
+  content  String
+  date  String
+  }
