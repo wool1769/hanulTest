@@ -9,15 +9,18 @@ interface contentData{
     date: string;
 }
 export default async function handler(  req: NextApiRequest ,res: NextApiResponse){
-
+    console.log("콘텐츠 진입")
+    console.log(req)
     const pnum = parseInt(req.query.pagenum as string);
     const skipnum = (pnum - 1) * 10;
     
-    if(req.method === "POST"){res.json(req.headers.host)}
+    if(req.method === "POST"){console.log("포스트진입??"); res.json(req.headers.host)}
 
     if(req.method === "GET"){
+        console.log("겟진입")
 
         if(req.query.pagenum != null && req.query.search == "undefined"){
+            console.log("조회");
             const totalcont = await client.post.count()
             const posts = await client.post.findMany({
                 orderBy: {
@@ -28,10 +31,12 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
     
                 
             });
+            
             res.json({datacount: totalcont,content: posts})
         }
 
         if(req.query.pagenum != null && req.query.search != "undefined"){
+            console.log("조회");
             // console.log("??")
             // console.log(req.query.search)
             const totalcont = await client.post.count({
