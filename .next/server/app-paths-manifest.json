@@ -1,1 +1,3 @@
-{}
+{
+  "/list/[pageNum]/page": "app/list/[pageNum]/page.js"
+}

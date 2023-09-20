@@ -16,7 +16,7 @@ interface contentData{
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
 
   const instance = axios.create({
-    baseURL: 'https://example.com', // 동일 도메인 또는 하위 도메인
+    baseURL: 'https://hanul-test.vercel.app/', // 동일 도메인 또는 하위 도메인
     proxy: {
       host: 'localhost',  // 프록시 서버 호스트 (로컬 호스트)
       port: 3000,         // 프록시 서버 포트
