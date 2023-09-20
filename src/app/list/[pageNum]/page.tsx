@@ -35,7 +35,7 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
 
     useEffect(() => {
     axios.post("/api/content").then(response => {
-      let url = `http://${response.data}/api/content?pagenum=${pageNum}`;
+      let url = `https://${response.data}/api/content?pagenum=${pageNum}`;
       if(searchPram != undefined){
         url +=`&search=${encodeURIComponent(props.searchParams.search)}`
       }
