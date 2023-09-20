@@ -5,7 +5,7 @@ const client = new PrismaClient();
 
 export default async function handler( req: NextApiRequest ,res: NextApiResponse) {
     console.log("포스트");
-    console.log(req)
+    console.log(req.body)
     try {
         console.log(req.body)
 

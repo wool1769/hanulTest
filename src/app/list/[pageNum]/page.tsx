@@ -16,7 +16,6 @@ interface contentData{
 }
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
-  console.log(axios.get('https://google.com'))
   
     const router = useRouter();
 
