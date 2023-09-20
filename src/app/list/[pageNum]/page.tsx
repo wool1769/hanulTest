@@ -43,7 +43,7 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
 
     useEffect(() => {
       instance.post("/api/content").then(response => {
-      let url = `https://${response.data}/api/content?pagenum=${pageNum}`;
+      let url = `/api/content?pagenum=${pageNum}`;
       if(searchPram != undefined){
         url +=`&search=${encodeURIComponent(props.searchParams.search)}`
       }
