@@ -84,6 +84,11 @@ export default function Edit(props: { params: { edit: string; }; }){
 
         };
 
+
+        const textval =(e: SetStateAction<string>)=>{
+            setText(e)
+        }
+
     return(
         <div className='wrap'>
             <div className='inner'>
@@ -96,7 +101,7 @@ export default function Edit(props: { params: { edit: string; }; }){
 
                 <div className='editerBox'>
 
-                    <Ckeditor/>
+                    <Ckeditor value ={consText} onChange={textval} />
                     
                 </div>
 
