@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+
 
 
 interface contentData{
@@ -14,6 +14,14 @@ interface contentData{
 }
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
+
+  const instance = axios.create({
+    baseURL: 'https://example.com', // 동일 도메인 또는 하위 도메인
+    proxy: {
+      host: 'localhost',  // 프록시 서버 호스트 (로컬 호스트)
+      port: 3000,         // 프록시 서버 포트
+    },
+  });
     
 
     const router = useRouter();
@@ -34,14 +42,14 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
     
 
     useEffect(() => {
-    axios.post("/api/content").then(response => {
+      instance.post("/api/content").then(response => {
       let url = `https://${response.data}/api/content?pagenum=${pageNum}`;
       if(searchPram != undefined){
         url +=`&search=${encodeURIComponent(props.searchParams.search)}`
       }
       // console.log(searchPram)
         // console.log(url)
-        axios.get(url).then(response => {
+        instance.get(url).then(response => {
             let data = response.data;
             setcon(data.content);
             setCount(data.datacount);
