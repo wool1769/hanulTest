@@ -16,6 +16,7 @@ interface contentData{
 }
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
+  console.log(axios.get('https://google.com'))
   
     const router = useRouter();
 
@@ -25,13 +26,6 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
 
     let pageNum = props.params.pageNum
     let searchPram =decodeURIComponent(props.searchParams.search)
-
-    
-    
-
-
-
-
     
 
     useEffect(() => {
@@ -42,7 +36,7 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
       }
       // console.log(searchPram)
         // console.log(url)
-        axios.get('/api/content').then(response => {
+        axios.get(url).then(response => {
             let data = response.data;
             setcon(data.content);
             setCount(data.datacount);
