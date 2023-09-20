@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"../app/write/[edit]/page.tsx -> @/app/ckediter/editer\":{\"id\":\"../app/write/[edit]/page.tsx -> @/app/ckediter/editer\",\"files\":[\"static/css/_app-pages-browser_src_app_ckediter_editer_js.css\",\"static/chunks/_app-pages-browser_src_app_ckediter_editer_js.js\"]}}"

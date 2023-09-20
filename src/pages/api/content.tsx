@@ -9,6 +9,9 @@ interface contentData{
     date: string;
 }
 export default async function handler(  req: NextApiRequest ,res: NextApiResponse){
+
+    
+
     console.log("콘텐츠 진입")
     console.log(req)
     const pnum = parseInt(req.query.pagenum as string);

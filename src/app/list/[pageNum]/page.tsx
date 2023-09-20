@@ -16,7 +16,7 @@ interface contentData{
 }
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
-  
+
     const router = useRouter();
 
 
