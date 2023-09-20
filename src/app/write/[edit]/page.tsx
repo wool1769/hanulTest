@@ -1,15 +1,22 @@
 'use client'
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { Editor } from '@toast-ui/react-editor';
+
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { SetStateAction, useEffect, useRef, useState } from 'react';
+
+import dynamic from 'next/dynamic';
+
+const Ckeditor = dynamic(()=>import('@/app/ckediter/editer'),{
+    loading: () => <p>Loading CKEditor...</p>,
+    ssr: false, // 클라이언트 측에서만 로드
+})
+
 
 
 export default function Edit(props: { params: { edit: string; }; }){
     const conId = props.params.edit
     const router = useRouter()
-    const editorRef = useRef<Editor | null>(null);
+    // const editorRef = useRef<Editor | null>(null);
 
     useEffect(() => {
         
@@ -21,12 +28,10 @@ export default function Edit(props: { params: { edit: string; }; }){
                 axios.get(url).then(response => {
                     setValue(response.data.title)
                     setDate(response.data.date)
-                    if(editorRef.current)
-                    editorRef.current.getInstance().setHTML(response.data.content)
+                    setText(response.data.content)
                     
                 });
             });
-
         }
         }, []);
 
@@ -50,18 +55,20 @@ export default function Edit(props: { params: { edit: string; }; }){
     date = `${year}. ${month}. ${day}`
 
 
-    
+
+    const [consText, setText] = useState(""); 
     const noticePost = async () => {
         
-        let htmlContent;
-        if(editorRef.current)
-        htmlContent= editorRef.current.getInstance().getHTML();
-        content = htmlContent;
+        // let htmlContent;
+        // // if(editorRef.current)
+        // // htmlContent= editorRef.current.getInstance().getHTML();
+        // content = htmlContent;
+
 
         await axios.post('/api/notice',{
             conid : conId,
             title : title,
-            content : content
+            content : consText
         }).then(respone=>{
             // console.log(respone.data.id);
             router.push(`/detail/${respone.data.id}`)
@@ -85,7 +92,15 @@ export default function Edit(props: { params: { edit: string; }; }){
                     <textarea placeholder='제목을 입력하세요' value={title} onChange={handleChange}/>
                     <p>{date}</p>
                 </div>
-                <Editor
+                
+
+                <div className='editerBox'>
+
+                    <Ckeditor/>
+                    
+                </div>
+
+                {/* <Editor
                     ref={editorRef}
                     // initialValue="망가짐.."
                     previewStyle="vertical"
@@ -94,7 +109,7 @@ export default function Edit(props: { params: { edit: string; }; }){
                     useCommandShortcut={true}
                     hideModeSwitch={true}
                     // onChange={handleEditorChange}
-                />
+                /> */}
 
                 <div className='detailBths'>
                     <button onClick={()=>router.back()}>취소</button>

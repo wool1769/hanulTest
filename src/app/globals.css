@@ -295,7 +295,11 @@ transform: translate(-50%, -50%);
 }
 
 /* 이거는 ... 토스트꺼  */
-.scroll-sync{display: none !important;}
+/* .scroll-sync{display: none !important;} */
+
+
+.ck-editor__editable{min-height: 350px;}
+.ck-powered-by a {display: none !important;}
 
 .detailtop textarea{
   
@@ -309,4 +313,7 @@ transform: translate(-50%, -50%);
   word-break:break-all;
   
 }
+
+
+
 
