@@ -1,7 +1,1 @@
-{
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/write/[edit]/page": "app/write/[edit]/page.js",
-  "/list/[pageNum]/page": "app/list/[pageNum]/page.js",
-  "/detail/[conId]/page": "app/detail/[conId]/page.js"
-}
+{}

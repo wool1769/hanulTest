@@ -1,7 +1,0 @@
-{
-  "/page": "/",
-  "/favicon.ico/route": "/favicon.ico",
-  "/write/[edit]/page": "/write/[edit]",
-  "/list/[pageNum]/page": "/list/[pageNum]",
-  "/detail/[conId]/page": "/detail/[conId]"
-}
