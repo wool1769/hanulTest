@@ -80,7 +80,7 @@ export default function Edit(props: { params: { edit: string; }; }){
     return(
         <div className='wrap'>
 
-//로딩.. 화면 잠금 
+
             <div id="lodingBox" className = {pLoding}>                
                 <div className="dot-container">
                     <div className="dot"></div>
