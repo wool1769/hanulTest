@@ -17,11 +17,10 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
     const pnum = parseInt(req.query.pagenum as string);
     const skipnum = (pnum - 1) * 10;
     
-    if(req.method === "POST"){console.log("포스트진입??"); res.json(req.headers.host)}
+
 
     if(req.method === "GET"){
-        console.log("겟진입")
-
+//검색조건 없는 게시물 데이터 전달 + 데이터 종 갯수
         if(req.query.pagenum != null && req.query.search == "undefined"){
             console.log("조회");
             const totalcont = await client.post.count()
@@ -31,17 +30,12 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
                 },
                 take: 10, 
                 skip: skipnum
-    
-                
             });
-            
             res.json({datacount: totalcont,content: posts})
         }
 
+//검색조건 있는 게시물 데이터 전달 + 데이터 종 갯수
         if(req.query.pagenum != null && req.query.search != "undefined"){
-            console.log("조회");
-            // console.log("??")
-            // console.log(req.query.search)
             const totalcont = await client.post.count({
                 where: {
                     OR: [
@@ -57,7 +51,6 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
                     },
                     ],
                 },        
-
             })
             const posts = await client.post.findMany({
                 where: {
@@ -79,12 +72,10 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
                 },
                 take: 10, 
                 skip: skipnum
-    
-                
             });
             res.json({datacount: totalcont,content: posts})
         }
-    
+        // 게시물 상세내용
         if(req.query.pageId != null && req.query.search == null){
             const post = await client.post.findUnique({
                 where: {
@@ -93,10 +84,8 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
             });
             res.json(post)
         }
-
-
     }
-
+// 게시물 삭제...
     if(req.method === "DELETE"){
         const del = await client.post.delete({
             where:{
@@ -105,8 +94,4 @@ export default async function handler(  req: NextApiRequest ,res: NextApiRespons
         })
         res.json("ok")
     }
-
-
-
-
 }

@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 
 const Ckeditor = dynamic(()=>import('@/app/ckediter/editer'),{
     loading: () => <p>Loading CKEditor...</p>,
-    ssr: false, // 클라이언트 측에서만 로드
+    ssr: false, 
 })
 
 
@@ -19,31 +19,24 @@ export default function Edit(props: { params: { edit: string; }; }){
     // const editorRef = useRef<Editor | null>(null);
 
     useEffect(() => {
-        
-
-
-        if(conId != "new"){
-            axios.post("/api/content").then(response => {
-                const url = `http://${response.data}/api/content?pageId=${conId}`;
+        if(conId != "new"){ //새글 작성이 아닐 경우 수정할 데이터 요청 
+                const url = `/api/content?pageId=${conId}`;
                 axios.get(url).then(response => {
                     setValue(response.data.title)
                     setDate(response.data.date)
                     setText(response.data.content)
-                    
                 });
-            });
         }
         }, []);
 
 
     const [title, setValue] = useState("");
-    let content;
     let date;
     let [conDate, setDate] = useState("")
 
     let nd;
-    if(conId=="new"){
-        nd = new Date();
+    if(conId=="new"){  //새글 , 수정 구분
+        nd = new Date(); 
     }else{
         nd = new Date(conDate);
     }
@@ -58,13 +51,6 @@ export default function Edit(props: { params: { edit: string; }; }){
 
     const [consText, setText] = useState(""); 
     const noticePost = async () => {
-        
-        // let htmlContent;
-        // // if(editorRef.current)
-        // // htmlContent= editorRef.current.getInstance().getHTML();
-        // content = htmlContent;
-
-
         await axios.post('/api/notice',{
             conid : conId,
             title : title,
@@ -75,16 +61,10 @@ export default function Edit(props: { params: { edit: string; }; }){
         })
         .catch(error=>(console.log(error.data)))
         };
-
-        
-
         const handleChange = (e: { target: { value: SetStateAction<string>; }; }) => {
             setValue(e.target.value);
-            // console.log(title)
-
         };
-
-
+    
         const textval =(e: SetStateAction<string>)=>{
             setText(e)
         }
@@ -97,24 +77,11 @@ export default function Edit(props: { params: { edit: string; }; }){
                     <textarea placeholder='제목을 입력하세요' value={title} onChange={handleChange}/>
                     <p>{date}</p>
                 </div>
-                
-
                 <div className='editerBox'>
 
                     <Ckeditor value ={consText} onChange={textval} />
                     
                 </div>
-
-                {/* <Editor
-                    ref={editorRef}
-                    // initialValue="망가짐.."
-                    previewStyle="vertical"
-                    height="600px"
-                    initialEditType="WYSIWYG"
-                    useCommandShortcut={true}
-                    hideModeSwitch={true}
-                    // onChange={handleEditorChange}
-                /> */}
 
                 <div className='detailBths'>
                     <button onClick={()=>router.back()}>취소</button>

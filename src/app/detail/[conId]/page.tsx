@@ -12,13 +12,11 @@ export default function Detailpage(props: { params: { conId: any; }; }){
     const conId = props.params.conId
     const [content, setcon] = useState<ContentData>({title: "", content: ""})
     const router = useRouter()
-
     const [date, setdate] = useState("")
 
-
     useEffect(() => {
-        axios.post("/api/content").then(response => {
-            const url = `http://${response.data}/api/content?pageId=${conId}`;
+            //페이지 로드시 내용 요청
+            const url = `/api/content?pageId=${conId}`;
             axios.get(url).then(response => {
                 setcon(response.data)
                 let contTime = new Date(response.data.date)
@@ -27,28 +25,24 @@ export default function Detailpage(props: { params: { conId: any; }; }){
                 const day = String(contTime.getDate()).padStart(2, '0'); 
                 setdate(`${year}. ${month}. ${day}`)
             });
-        });
         // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
 
         const condelete =()=>{
-            if(confirm("정말 삭제하시겠습니까?")){
-                axios.post("/api/content").then(response => {
-                    const url = `http://${response.data}/api/content?pageId=${conId}`;
+            if(confirm("정말 삭제하시겠습니까?")){//삭제 확인
+                    const url = `/api/content?pageId=${conId}`;
                     axios.delete(url).then(response => {
-                        router.back()
+                        router.push('/list/1')// 삭제 완료 후 리스트 1페이지로 이동
                     });
-                });
             }
-
         }
 
         const conPut =()=>{
+            //수정 버튼 누를 시 작성페이지로 이동 
             router.push(`/write/${conId}`)
         }
 
     return(
-        
         <div className="wrap">
             <div className="inner">
 

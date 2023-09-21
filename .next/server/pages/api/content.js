@@ -1,180 +1,95 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 325;
-exports.ids = [325];
+exports.id = "pages/api/content";
+exports.ids = ["pages/api/content"];
 exports.modules = {
 
-/***/ 3524:
+/***/ "@prisma/client":
+/*!*********************************!*\
+  !*** external "@prisma/client" ***!
+  \*********************************/
 /***/ ((module) => {
 
 module.exports = require("@prisma/client");
 
 /***/ }),
 
-/***/ 730:
+/***/ "../../../api-utils/node":
+/*!*****************************************************!*\
+  !*** external "next/dist/server/api-utils/node.js" ***!
+  \*****************************************************/
 /***/ ((module) => {
 
 module.exports = require("next/dist/server/api-utils/node.js");
 
 /***/ }),
 
-/***/ 3076:
+/***/ "../route-module?407b":
+/*!************************************************************************!*\
+  !*** external "next/dist/server/future/route-modules/route-module.js" ***!
+  \************************************************************************/
 /***/ ((module) => {
 
 module.exports = require("next/dist/server/future/route-modules/route-module.js");
 
 /***/ }),
 
-/***/ 6696:
+/***/ "(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/helpers.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-route-loader/helpers.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("/**\n * Hoists a name from a module or promised module.\n *\n * @param module the module to hoist the name from\n * @param name the name to hoist\n * @returns the value on the module (or promised module)\n */ \nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nObject.defineProperty(exports, \"hoist\", ({\n    enumerable: true,\n    get: function() {\n        return hoist;\n    }\n}));\nfunction hoist(module, name) {\n    // If the name is available in the module, return it.\n    if (name in module) {\n        return module[name];\n    }\n    // If a property called `then` exists, assume it's a promise and\n    // return a promise that resolves to the name.\n    if (\"then\" in module && typeof module.then === \"function\") {\n        return module.then((mod)=>hoist(mod, name));\n    }\n    // If we're trying to hoise the default export, and the module is a function,\n    // return the module itself.\n    if (typeof module === \"function\" && name === \"default\") {\n        return module;\n    }\n    // Otherwise, return undefined.\n    return undefined;\n}\n\n//# sourceMappingURL=helpers.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LXJvdXRlLWxvYWRlci9oZWxwZXJzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLElBQWlCO0FBQ2pCLDhDQUE2QztBQUM3QztBQUNBLENBQUMsRUFBQztBQUNGLHlDQUF3QztBQUN4QztBQUNBO0FBQ0E7QUFDQTtBQUNBLENBQUMsRUFBQztBQUNGO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSIsInNvdXJjZXMiOlsid2VicGFjazovL25vdGljZS8uL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3QvYnVpbGQvd2VicGFjay9sb2FkZXJzL25leHQtcm91dGUtbG9hZGVyL2hlbHBlcnMuanM/MGE5OSJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEhvaXN0cyBhIG5hbWUgZnJvbSBhIG1vZHVsZSBvciBwcm9taXNlZCBtb2R1bGUuXG4gKlxuICogQHBhcmFtIG1vZHVsZSB0aGUgbW9kdWxlIHRvIGhvaXN0IHRoZSBuYW1lIGZyb21cbiAqIEBwYXJhbSBuYW1lIHRoZSBuYW1lIHRvIGhvaXN0XG4gKiBAcmV0dXJucyB0aGUgdmFsdWUgb24gdGhlIG1vZHVsZSAob3IgcHJvbWlzZWQgbW9kdWxlKVxuICovIFwidXNlIHN0cmljdFwiO1xuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiX19lc01vZHVsZVwiLCB7XG4gICAgdmFsdWU6IHRydWVcbn0pO1xuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiaG9pc3RcIiwge1xuICAgIGVudW1lcmFibGU6IHRydWUsXG4gICAgZ2V0OiBmdW5jdGlvbigpIHtcbiAgICAgICAgcmV0dXJuIGhvaXN0O1xuICAgIH1cbn0pO1xuZnVuY3Rpb24gaG9pc3QobW9kdWxlLCBuYW1lKSB7XG4gICAgLy8gSWYgdGhlIG5hbWUgaXMgYXZhaWxhYmxlIGluIHRoZSBtb2R1bGUsIHJldHVybiBpdC5cbiAgICBpZiAobmFtZSBpbiBtb2R1bGUpIHtcbiAgICAgICAgcmV0dXJuIG1vZHVsZVtuYW1lXTtcbiAgICB9XG4gICAgLy8gSWYgYSBwcm9wZXJ0eSBjYWxsZWQgYHRoZW5gIGV4aXN0cywgYXNzdW1lIGl0J3MgYSBwcm9taXNlIGFuZFxuICAgIC8vIHJldHVybiBhIHByb21pc2UgdGhhdCByZXNvbHZlcyB0byB0aGUgbmFtZS5cbiAgICBpZiAoXCJ0aGVuXCIgaW4gbW9kdWxlICYmIHR5cGVvZiBtb2R1bGUudGhlbiA9PT0gXCJmdW5jdGlvblwiKSB7XG4gICAgICAgIHJldHVybiBtb2R1bGUudGhlbigobW9kKT0+aG9pc3QobW9kLCBuYW1lKSk7XG4gICAgfVxuICAgIC8vIElmIHdlJ3JlIHRyeWluZyB0byBob2lzZSB0aGUgZGVmYXVsdCBleHBvcnQsIGFuZCB0aGUgbW9kdWxlIGlzIGEgZnVuY3Rpb24sXG4gICAgLy8gcmV0dXJuIHRoZSBtb2R1bGUgaXRzZWxmLlxuICAgIGlmICh0eXBlb2YgbW9kdWxlID09PSBcImZ1bmN0aW9uXCIgJiYgbmFtZSA9PT0gXCJkZWZhdWx0XCIpIHtcbiAgICAgICAgcmV0dXJuIG1vZHVsZTtcbiAgICB9XG4gICAgLy8gT3RoZXJ3aXNlLCByZXR1cm4gdW5kZWZpbmVkLlxuICAgIHJldHVybiB1bmRlZmluZWQ7XG59XG5cbi8vIyBzb3VyY2VNYXBwaW5nVVJMPWhlbHBlcnMuanMubWFwIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/helpers.js\n");
+
+/***/ }),
+
+/***/ "(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES_API&page=%2Fapi%2Fcontent&preferredRegion=&absolutePagePath=.%2Fsrc%2Fpages%2Fapi%2Fcontent.tsx&middlewareConfigBase64=e30%3D!":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES_API&page=%2Fapi%2Fcontent&preferredRegion=&absolutePagePath=.%2Fsrc%2Fpages%2Fapi%2Fcontent.tsx&middlewareConfigBase64=e30%3D! ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   config: () => (/* binding */ config),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   routeModule: () => (/* binding */ routeModule)\n/* harmony export */ });\n/* harmony import */ var next_dist_server_future_route_modules_pages_api_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/server/future/route-modules/pages-api/module */ \"(api)/./node_modules/next/dist/server/future/route-modules/pages-api/module.js\");\n/* harmony import */ var next_dist_server_future_route_modules_pages_api_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_pages_api_module__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/dist/server/future/route-kind */ \"(api)/./node_modules/next/dist/server/future/route-kind.js\");\n/* harmony import */ var next_dist_build_webpack_loaders_next_route_loader_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-route-loader/helpers */ \"(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/helpers.js\");\n/* harmony import */ var _src_pages_api_content_tsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/pages/api/content.tsx */ \"(api)/./src/pages/api/content.tsx\");\n// @ts-ignore this need to be imported from next/dist to be external\n\n\n\nconst PagesAPIRouteModule = next_dist_server_future_route_modules_pages_api_module__WEBPACK_IMPORTED_MODULE_0__.PagesAPIRouteModule;\n// Import the userland code.\n// @ts-expect-error - replaced by webpack/turbopack loader\n\n// Re-export the handler (should be the default export).\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,next_dist_build_webpack_loaders_next_route_loader_helpers__WEBPACK_IMPORTED_MODULE_2__.hoist)(_src_pages_api_content_tsx__WEBPACK_IMPORTED_MODULE_3__, \"default\"));\n// Re-export config.\nconst config = (0,next_dist_build_webpack_loaders_next_route_loader_helpers__WEBPACK_IMPORTED_MODULE_2__.hoist)(_src_pages_api_content_tsx__WEBPACK_IMPORTED_MODULE_3__, \"config\");\n// Create and export the route module that will be consumed.\nconst routeModule = new PagesAPIRouteModule({\n    definition: {\n        kind: next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__.RouteKind.PAGES_API,\n        page: \"/api/content\",\n        pathname: \"/api/content\",\n        // The following aren't used in production.\n        bundlePath: \"\",\n        filename: \"\"\n    },\n    userland: _src_pages_api_content_tsx__WEBPACK_IMPORTED_MODULE_3__\n});\n\n//# sourceMappingURL=pages-api.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LXJvdXRlLWxvYWRlci9pbmRleC5qcz9raW5kPVBBR0VTX0FQSSZwYWdlPSUyRmFwaSUyRmNvbnRlbnQmcHJlZmVycmVkUmVnaW9uPSZhYnNvbHV0ZVBhZ2VQYXRoPS4lMkZzcmMlMkZwYWdlcyUyRmFwaSUyRmNvbnRlbnQudHN4Jm1pZGRsZXdhcmVDb25maWdCYXNlNjQ9ZTMwJTNEISIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBO0FBQ2lGO0FBQ2xCO0FBQ21CO0FBQ2xGLDRCQUE0Qix1R0FBMEI7QUFDdEQ7QUFDQTtBQUN3RDtBQUN4RDtBQUNBLGlFQUFlLGdHQUFLLENBQUMsdURBQVEsWUFBWSxFQUFDO0FBQzFDO0FBQ08sZUFBZSxnR0FBSyxDQUFDLHVEQUFRO0FBQ3BDO0FBQ087QUFDUDtBQUNBLGNBQWMseUVBQVM7QUFDdkI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEtBQUs7QUFDTCxZQUFZO0FBQ1osQ0FBQzs7QUFFRCIsInNvdXJjZXMiOlsid2VicGFjazovL25vdGljZS8/ZDY4NyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBAdHMtaWdub3JlIHRoaXMgbmVlZCB0byBiZSBpbXBvcnRlZCBmcm9tIG5leHQvZGlzdCB0byBiZSBleHRlcm5hbFxuaW1wb3J0ICogYXMgbW9kdWxlIGZyb20gXCJuZXh0L2Rpc3Qvc2VydmVyL2Z1dHVyZS9yb3V0ZS1tb2R1bGVzL3BhZ2VzLWFwaS9tb2R1bGVcIjtcbmltcG9ydCB7IFJvdXRlS2luZCB9IGZyb20gXCJuZXh0L2Rpc3Qvc2VydmVyL2Z1dHVyZS9yb3V0ZS1raW5kXCI7XG5pbXBvcnQgeyBob2lzdCB9IGZyb20gXCJuZXh0L2Rpc3QvYnVpbGQvd2VicGFjay9sb2FkZXJzL25leHQtcm91dGUtbG9hZGVyL2hlbHBlcnNcIjtcbmNvbnN0IFBhZ2VzQVBJUm91dGVNb2R1bGUgPSBtb2R1bGUuUGFnZXNBUElSb3V0ZU1vZHVsZTtcbi8vIEltcG9ydCB0aGUgdXNlcmxhbmQgY29kZS5cbi8vIEB0cy1leHBlY3QtZXJyb3IgLSByZXBsYWNlZCBieSB3ZWJwYWNrL3R1cmJvcGFjayBsb2FkZXJcbmltcG9ydCAqIGFzIHVzZXJsYW5kIGZyb20gXCIuL3NyYy9wYWdlcy9hcGkvY29udGVudC50c3hcIjtcbi8vIFJlLWV4cG9ydCB0aGUgaGFuZGxlciAoc2hvdWxkIGJlIHRoZSBkZWZhdWx0IGV4cG9ydCkuXG5leHBvcnQgZGVmYXVsdCBob2lzdCh1c2VybGFuZCwgXCJkZWZhdWx0XCIpO1xuLy8gUmUtZXhwb3J0IGNvbmZpZy5cbmV4cG9ydCBjb25zdCBjb25maWcgPSBob2lzdCh1c2VybGFuZCwgXCJjb25maWdcIik7XG4vLyBDcmVhdGUgYW5kIGV4cG9ydCB0aGUgcm91dGUgbW9kdWxlIHRoYXQgd2lsbCBiZSBjb25zdW1lZC5cbmV4cG9ydCBjb25zdCByb3V0ZU1vZHVsZSA9IG5ldyBQYWdlc0FQSVJvdXRlTW9kdWxlKHtcbiAgICBkZWZpbml0aW9uOiB7XG4gICAgICAgIGtpbmQ6IFJvdXRlS2luZC5QQUdFU19BUEksXG4gICAgICAgIHBhZ2U6IFwiL2FwaS9jb250ZW50XCIsXG4gICAgICAgIHBhdGhuYW1lOiBcIi9hcGkvY29udGVudFwiLFxuICAgICAgICAvLyBUaGUgZm9sbG93aW5nIGFyZW4ndCB1c2VkIGluIHByb2R1Y3Rpb24uXG4gICAgICAgIGJ1bmRsZVBhdGg6IFwiXCIsXG4gICAgICAgIGZpbGVuYW1lOiBcIlwiXG4gICAgfSxcbiAgICB1c2VybGFuZFxufSk7XG5cbi8vIyBzb3VyY2VNYXBwaW5nVVJMPXBhZ2VzLWFwaS5qcy5tYXAiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES_API&page=%2Fapi%2Fcontent&preferredRegion=&absolutePagePath=.%2Fsrc%2Fpages%2Fapi%2Fcontent.tsx&middlewareConfigBase64=e30%3D!\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  config: () => (/* binding */ config),
-  "default": () => (/* binding */ next_route_loaderkind_PAGES_API_page_2Fapi_2Fcontent_preferredRegion_absolutePagePath_private_next_pages_2Fapi_2Fcontent_tsx_middlewareConfigBase64_e30_3D_),
-  routeModule: () => (/* binding */ routeModule)
-});
+/***/ }),
 
-// NAMESPACE OBJECT: ./src/pages/api/content.tsx
-var content_namespaceObject = {};
-__webpack_require__.r(content_namespaceObject);
-__webpack_require__.d(content_namespaceObject, {
-  "default": () => (handler)
-});
+/***/ "(api)/./src/pages/api/content.tsx":
+/*!***********************************!*\
+  !*** ./src/pages/api/content.tsx ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-modules/pages-api/module.js
-var pages_api_module = __webpack_require__(6429);
-// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-kind.js
-var route_kind = __webpack_require__(7153);
-// EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-route-loader/helpers.js
-var helpers = __webpack_require__(7305);
-// EXTERNAL MODULE: external "@prisma/client"
-var client_ = __webpack_require__(3524);
-;// CONCATENATED MODULE: ./src/pages/api/content.tsx
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @prisma/client */ \"@prisma/client\");\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);\n\nconst client = new _prisma_client__WEBPACK_IMPORTED_MODULE_0__.PrismaClient();\nasync function handler(req, res) {\n    console.log(\"콘텐츠 진입\");\n    console.log(req);\n    const pnum = parseInt(req.query.pagenum);\n    const skipnum = (pnum - 1) * 10;\n    if (req.method === \"GET\") {\n        //검색조건 없는 게시물 데이터 전달 + 데이터 종 갯수\n        if (req.query.pagenum != null && req.query.search == \"undefined\") {\n            console.log(\"조회\");\n            const totalcont = await client.post.count();\n            const posts = await client.post.findMany({\n                orderBy: {\n                    id: \"desc\"\n                },\n                take: 10,\n                skip: skipnum\n            });\n            res.json({\n                datacount: totalcont,\n                content: posts\n            });\n        }\n        //검색조건 있는 게시물 데이터 전달 + 데이터 종 갯수\n        if (req.query.pagenum != null && req.query.search != \"undefined\") {\n            const totalcont = await client.post.count({\n                where: {\n                    OR: [\n                        {\n                            title: {\n                                contains: req.query.search\n                            }\n                        },\n                        {\n                            content: {\n                                contains: req.query.search\n                            }\n                        }\n                    ]\n                }\n            });\n            const posts = await client.post.findMany({\n                where: {\n                    OR: [\n                        {\n                            title: {\n                                contains: req.query.search\n                            }\n                        },\n                        {\n                            content: {\n                                contains: req.query.search\n                            }\n                        }\n                    ]\n                },\n                orderBy: {\n                    id: \"desc\"\n                },\n                take: 10,\n                skip: skipnum\n            });\n            res.json({\n                datacount: totalcont,\n                content: posts\n            });\n        }\n        // 게시물 상세내용\n        if (req.query.pageId != null && req.query.search == null) {\n            const post = await client.post.findUnique({\n                where: {\n                    id: req.query.pageId\n                }\n            });\n            res.json(post);\n        }\n    }\n    // 게시물 삭제...\n    if (req.method === \"DELETE\") {\n        const del = await client.post.delete({\n            where: {\n                id: req.query.pageId\n            }\n        });\n        res.json(\"ok\");\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvcGFnZXMvYXBpL2NvbnRlbnQudHN4IiwibWFwcGluZ3MiOiI7Ozs7OztBQUE4QztBQUU5QyxNQUFNQyxTQUFTLElBQUlELHdEQUFZQTtBQVFoQixlQUFlRSxRQUFVQyxHQUFtQixFQUFFQyxHQUFvQjtJQUk3RUMsUUFBUUMsR0FBRyxDQUFDO0lBQ1pELFFBQVFDLEdBQUcsQ0FBQ0g7SUFDWixNQUFNSSxPQUFPQyxTQUFTTCxJQUFJTSxLQUFLLENBQUNDLE9BQU87SUFDdkMsTUFBTUMsVUFBVSxDQUFDSixPQUFPLEtBQUs7SUFJN0IsSUFBR0osSUFBSVMsTUFBTSxLQUFLLE9BQU07UUFDNUIsK0JBQStCO1FBQ3ZCLElBQUdULElBQUlNLEtBQUssQ0FBQ0MsT0FBTyxJQUFJLFFBQVFQLElBQUlNLEtBQUssQ0FBQ0ksTUFBTSxJQUFJLGFBQVk7WUFDNURSLFFBQVFDLEdBQUcsQ0FBQztZQUNaLE1BQU1RLFlBQVksTUFBTWIsT0FBT2MsSUFBSSxDQUFDQyxLQUFLO1lBQ3pDLE1BQU1DLFFBQVEsTUFBTWhCLE9BQU9jLElBQUksQ0FBQ0csUUFBUSxDQUFDO2dCQUNyQ0MsU0FBUztvQkFDTEMsSUFBSztnQkFDVDtnQkFDQUMsTUFBTTtnQkFDTkMsTUFBTVg7WUFDVjtZQUNBUCxJQUFJbUIsSUFBSSxDQUFDO2dCQUFDQyxXQUFXVjtnQkFBVVcsU0FBU1I7WUFBSztRQUNqRDtRQUVSLCtCQUErQjtRQUN2QixJQUFHZCxJQUFJTSxLQUFLLENBQUNDLE9BQU8sSUFBSSxRQUFRUCxJQUFJTSxLQUFLLENBQUNJLE1BQU0sSUFBSSxhQUFZO1lBQzVELE1BQU1DLFlBQVksTUFBTWIsT0FBT2MsSUFBSSxDQUFDQyxLQUFLLENBQUM7Z0JBQ3RDVSxPQUFPO29CQUNIQyxJQUFJO3dCQUNKOzRCQUNJQyxPQUFPO2dDQUNMQyxVQUFVMUIsSUFBSU0sS0FBSyxDQUFDSSxNQUFNOzRCQUM1Qjt3QkFDSjt3QkFDQTs0QkFDSVksU0FBUztnQ0FDUEksVUFBVTFCLElBQUlNLEtBQUssQ0FBQ0ksTUFBTTs0QkFDNUI7d0JBQ0o7cUJBQ0M7Z0JBQ0w7WUFDSjtZQUNBLE1BQU1JLFFBQVEsTUFBTWhCLE9BQU9jLElBQUksQ0FBQ0csUUFBUSxDQUFDO2dCQUNyQ1EsT0FBTztvQkFDSEMsSUFBSTt3QkFDSjs0QkFDSUMsT0FBTztnQ0FDTEMsVUFBVTFCLElBQUlNLEtBQUssQ0FBQ0ksTUFBTTs0QkFDNUI7d0JBQ0o7d0JBQ0E7NEJBQ0lZLFNBQVM7Z0NBQ1BJLFVBQVUxQixJQUFJTSxLQUFLLENBQUNJLE1BQU07NEJBQzVCO3dCQUNKO3FCQUNDO2dCQUNMO2dCQUNBTSxTQUFTO29CQUNMQyxJQUFLO2dCQUNUO2dCQUNBQyxNQUFNO2dCQUNOQyxNQUFNWDtZQUNWO1lBQ0FQLElBQUltQixJQUFJLENBQUM7Z0JBQUNDLFdBQVdWO2dCQUFVVyxTQUFTUjtZQUFLO1FBQ2pEO1FBQ0EsV0FBVztRQUNYLElBQUdkLElBQUlNLEtBQUssQ0FBQ3FCLE1BQU0sSUFBSSxRQUFRM0IsSUFBSU0sS0FBSyxDQUFDSSxNQUFNLElBQUksTUFBSztZQUNwRCxNQUFNRSxPQUFPLE1BQU1kLE9BQU9jLElBQUksQ0FBQ2dCLFVBQVUsQ0FBQztnQkFDdENMLE9BQU87b0JBQ0hOLElBQUlqQixJQUFJTSxLQUFLLENBQUNxQixNQUFNO2dCQUN4QjtZQUNKO1lBQ0ExQixJQUFJbUIsSUFBSSxDQUFDUjtRQUNiO0lBQ0o7SUFDSixZQUFZO0lBQ1IsSUFBR1osSUFBSVMsTUFBTSxLQUFLLFVBQVM7UUFDdkIsTUFBTW9CLE1BQU0sTUFBTS9CLE9BQU9jLElBQUksQ0FBQ2tCLE1BQU0sQ0FBQztZQUNqQ1AsT0FBTTtnQkFDRk4sSUFBSWpCLElBQUlNLEtBQUssQ0FBQ3FCLE1BQU07WUFDeEI7UUFDSjtRQUNBMUIsSUFBSW1CLElBQUksQ0FBQztJQUNiO0FBQ0oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9ub3RpY2UvLi9zcmMvcGFnZXMvYXBpL2NvbnRlbnQudHN4P2NmOTYiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUHJpc21hQ2xpZW50IH0gZnJvbSBcIkBwcmlzbWEvY2xpZW50XCI7XG5pbXBvcnQgeyBOZXh0QXBpUmVxdWVzdCwgTmV4dEFwaVJlc3BvbnNlIH0gZnJvbSBcIm5leHRcIjtcbmNvbnN0IGNsaWVudCA9IG5ldyBQcmlzbWFDbGllbnQoKTtcblxuaW50ZXJmYWNlIGNvbnRlbnREYXRhe1xuICAgIGlkOiBzdHJpbmc7XG4gICAgdGl0bGU6IHN0cmluZztcbiAgICBjb250ZW50OiBzdHJpbmc7XG4gICAgZGF0ZTogc3RyaW5nO1xufVxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlciggIHJlcTogTmV4dEFwaVJlcXVlc3QgLHJlczogTmV4dEFwaVJlc3BvbnNlKXtcblxuICAgIFxuXG4gICAgY29uc29sZS5sb2coXCLsvZjthZDsuKAg7KeE7J6FXCIpXG4gICAgY29uc29sZS5sb2cocmVxKVxuICAgIGNvbnN0IHBudW0gPSBwYXJzZUludChyZXEucXVlcnkucGFnZW51bSBhcyBzdHJpbmcpO1xuICAgIGNvbnN0IHNraXBudW0gPSAocG51bSAtIDEpICogMTA7XG4gICAgXG5cblxuICAgIGlmKHJlcS5tZXRob2QgPT09IFwiR0VUXCIpe1xuLy/qsoDsg4nsobDqsbQg7JeG64qUIOqyjOyLnOusvCDrjbDsnbTthLAg7KCE64usICsg642w7J207YSwIOyihSDqsK/siJhcbiAgICAgICAgaWYocmVxLnF1ZXJ5LnBhZ2VudW0gIT0gbnVsbCAmJiByZXEucXVlcnkuc2VhcmNoID09IFwidW5kZWZpbmVkXCIpe1xuICAgICAgICAgICAgY29uc29sZS5sb2coXCLsobDtmoxcIik7XG4gICAgICAgICAgICBjb25zdCB0b3RhbGNvbnQgPSBhd2FpdCBjbGllbnQucG9zdC5jb3VudCgpXG4gICAgICAgICAgICBjb25zdCBwb3N0cyA9IGF3YWl0IGNsaWVudC5wb3N0LmZpbmRNYW55KHtcbiAgICAgICAgICAgICAgICBvcmRlckJ5OiB7XG4gICAgICAgICAgICAgICAgICAgIGlkIDogJ2Rlc2MnLCBcbiAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgIHRha2U6IDEwLCBcbiAgICAgICAgICAgICAgICBza2lwOiBza2lwbnVtXG4gICAgICAgICAgICB9KTtcbiAgICAgICAgICAgIHJlcy5qc29uKHtkYXRhY291bnQ6IHRvdGFsY29udCxjb250ZW50OiBwb3N0c30pXG4gICAgICAgIH1cblxuLy/qsoDsg4nsobDqsbQg7J6I64qUIOqyjOyLnOusvCDrjbDsnbTthLAg7KCE64usICsg642w7J207YSwIOyihSDqsK/siJhcbiAgICAgICAgaWYocmVxLnF1ZXJ5LnBhZ2VudW0gIT0gbnVsbCAmJiByZXEucXVlcnkuc2VhcmNoICE9IFwidW5kZWZpbmVkXCIpe1xuICAgICAgICAgICAgY29uc3QgdG90YWxjb250ID0gYXdhaXQgY2xpZW50LnBvc3QuY291bnQoe1xuICAgICAgICAgICAgICAgIHdoZXJlOiB7XG4gICAgICAgICAgICAgICAgICAgIE9SOiBbXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRpdGxlOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5zOiByZXEucXVlcnkuc2VhcmNoIGFzIHN0cmluZywgLy8gdGl0bGXsl5Ag6rKA7IOJ7Ja0IO2PrO2VqCDsl6zrtoAg7ZmV7J24XG4gICAgICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBjb250ZW50OiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5zOiByZXEucXVlcnkuc2VhcmNoIGFzIHN0cmluZywgLy8gY29udGVudOyXkCDqsoDsg4nslrQg7Y+s7ZWoIOyXrOu2gCDtmZXsnbhcbiAgICAgICAgICAgICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgICAgICAgIF0sXG4gICAgICAgICAgICAgICAgfSwgICAgICAgIFxuICAgICAgICAgICAgfSlcbiAgICAgICAgICAgIGNvbnN0IHBvc3RzID0gYXdhaXQgY2xpZW50LnBvc3QuZmluZE1hbnkoe1xuICAgICAgICAgICAgICAgIHdoZXJlOiB7XG4gICAgICAgICAgICAgICAgICAgIE9SOiBbXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRpdGxlOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5zOiByZXEucXVlcnkuc2VhcmNoIGFzIHN0cmluZywgLy8gdGl0bGXsl5Ag6rKA7IOJ7Ja0IO2PrO2VqCDsl6zrtoAg7ZmV7J24XG4gICAgICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBjb250ZW50OiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRhaW5zOiByZXEucXVlcnkuc2VhcmNoIGFzIHN0cmluZywgLy8gY29udGVudOyXkCDqsoDsg4nslrQg7Y+s7ZWoIOyXrOu2gCDtmZXsnbhcbiAgICAgICAgICAgICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgICAgICAgIF0sXG4gICAgICAgICAgICAgICAgfSwgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgb3JkZXJCeToge1xuICAgICAgICAgICAgICAgICAgICBpZCA6ICdkZXNjJywgXG4gICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICB0YWtlOiAxMCwgXG4gICAgICAgICAgICAgICAgc2tpcDogc2tpcG51bVxuICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICByZXMuanNvbih7ZGF0YWNvdW50OiB0b3RhbGNvbnQsY29udGVudDogcG9zdHN9KVxuICAgICAgICB9XG4gICAgICAgIC8vIOqyjOyLnOusvCDsg4HshLjrgrTsmqlcbiAgICAgICAgaWYocmVxLnF1ZXJ5LnBhZ2VJZCAhPSBudWxsICYmIHJlcS5xdWVyeS5zZWFyY2ggPT0gbnVsbCl7XG4gICAgICAgICAgICBjb25zdCBwb3N0ID0gYXdhaXQgY2xpZW50LnBvc3QuZmluZFVuaXF1ZSh7XG4gICAgICAgICAgICAgICAgd2hlcmU6IHtcbiAgICAgICAgICAgICAgICAgICAgaWQ6IHJlcS5xdWVyeS5wYWdlSWQgYXMgc3RyaW5nXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICByZXMuanNvbihwb3N0KVxuICAgICAgICB9XG4gICAgfVxuLy8g6rKM7Iuc66y8IOyCreygnC4uLlxuICAgIGlmKHJlcS5tZXRob2QgPT09IFwiREVMRVRFXCIpe1xuICAgICAgICBjb25zdCBkZWwgPSBhd2FpdCBjbGllbnQucG9zdC5kZWxldGUoe1xuICAgICAgICAgICAgd2hlcmU6e1xuICAgICAgICAgICAgICAgIGlkOiByZXEucXVlcnkucGFnZUlkIGFzIHN0cmluZ1xuICAgICAgICAgICAgfVxuICAgICAgICB9KVxuICAgICAgICByZXMuanNvbihcIm9rXCIpXG4gICAgfVxufVxuIl0sIm5hbWVzIjpbIlByaXNtYUNsaWVudCIsImNsaWVudCIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJjb25zb2xlIiwibG9nIiwicG51bSIsInBhcnNlSW50IiwicXVlcnkiLCJwYWdlbnVtIiwic2tpcG51bSIsIm1ldGhvZCIsInNlYXJjaCIsInRvdGFsY29udCIsInBvc3QiLCJjb3VudCIsInBvc3RzIiwiZmluZE1hbnkiLCJvcmRlckJ5IiwiaWQiLCJ0YWtlIiwic2tpcCIsImpzb24iLCJkYXRhY291bnQiLCJjb250ZW50Iiwid2hlcmUiLCJPUiIsInRpdGxlIiwiY29udGFpbnMiLCJwYWdlSWQiLCJmaW5kVW5pcXVlIiwiZGVsIiwiZGVsZXRlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./src/pages/api/content.tsx\n");
 
-const client = new client_.PrismaClient();
-async function handler(req, res) {
-    console.log("콘텐츠 진입");
-    console.log(req);
-    const pnum = parseInt(req.query.pagenum);
-    const skipnum = (pnum - 1) * 10;
-    if (req.method === "POST") {
-        console.log("포스트진입??");
-        res.json(req.headers.host);
-    }
-    if (req.method === "GET") {
-        console.log("겟진입");
-        if (req.query.pagenum != null && req.query.search == "undefined") {
-            console.log("조회");
-            const totalcont = await client.post.count();
-            const posts = await client.post.findMany({
-                orderBy: {
-                    id: "desc"
-                },
-                take: 10,
-                skip: skipnum
-            });
-            res.json({
-                datacount: totalcont,
-                content: posts
-            });
-        }
-        if (req.query.pagenum != null && req.query.search != "undefined") {
-            console.log("조회");
-            // console.log("??")
-            // console.log(req.query.search)
-            const totalcont = await client.post.count({
-                where: {
-                    OR: [
-                        {
-                            title: {
-                                contains: req.query.search
-                            }
-                        },
-                        {
-                            content: {
-                                contains: req.query.search
-                            }
-                        }
-                    ]
-                }
-            });
-            const posts = await client.post.findMany({
-                where: {
-                    OR: [
-                        {
-                            title: {
-                                contains: req.query.search
-                            }
-                        },
-                        {
-                            content: {
-                                contains: req.query.search
-                            }
-                        }
-                    ]
-                },
-                orderBy: {
-                    id: "desc"
-                },
-                take: 10,
-                skip: skipnum
-            });
-            res.json({
-                datacount: totalcont,
-                content: posts
-            });
-        }
-        if (req.query.pageId != null && req.query.search == null) {
-            const post = await client.post.findUnique({
-                where: {
-                    id: req.query.pageId
-                }
-            });
-            res.json(post);
-        }
-    }
-    if (req.method === "DELETE") {
-        const del = await client.post.delete({
-            where: {
-                id: req.query.pageId
-            }
-        });
-        res.json("ok");
-    }
-}
+/***/ }),
 
-;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES_API&page=%2Fapi%2Fcontent&preferredRegion=&absolutePagePath=private-next-pages%2Fapi%2Fcontent.tsx&middlewareConfigBase64=e30%3D!
-// @ts-ignore this need to be imported from next/dist to be external
+/***/ "(api)/./node_modules/next/dist/server/future/route-kind.js":
+/*!************************************************************!*\
+  !*** ./node_modules/next/dist/server/future/route-kind.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
 
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nObject.defineProperty(exports, \"RouteKind\", ({\n    enumerable: true,\n    get: function() {\n        return RouteKind;\n    }\n}));\nvar RouteKind;\n(function(RouteKind) {\n    RouteKind[/**\n   * `PAGES` represents all the React pages that are under `pages/`.\n   */ \"PAGES\"] = \"PAGES\";\n    RouteKind[/**\n   * `PAGES_API` represents all the API routes under `pages/api/`.\n   */ \"PAGES_API\"] = \"PAGES_API\";\n    RouteKind[/**\n   * `APP_PAGE` represents all the React pages that are under `app/` with the\n   * filename of `page.{j,t}s{,x}`.\n   */ \"APP_PAGE\"] = \"APP_PAGE\";\n    RouteKind[/**\n   * `APP_ROUTE` represents all the API routes and metadata routes that are under `app/` with the\n   * filename of `route.{j,t}s{,x}`.\n   */ \"APP_ROUTE\"] = \"APP_ROUTE\";\n})(RouteKind || (RouteKind = {}));\n\n//# sourceMappingURL=route-kind.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L3NlcnZlci9mdXR1cmUvcm91dGUta2luZC5qcyIsIm1hcHBpbmdzIjoiQUFBYTtBQUNiLDhDQUE2QztBQUM3QztBQUNBLENBQUMsRUFBQztBQUNGLDZDQUE0QztBQUM1QztBQUNBO0FBQ0E7QUFDQTtBQUNBLENBQUMsRUFBQztBQUNGO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0Esd0JBQXdCLElBQUksRUFBRSxHQUFHO0FBQ2pDO0FBQ0E7QUFDQTtBQUNBLHlCQUF5QixJQUFJLEVBQUUsR0FBRztBQUNsQztBQUNBLENBQUMsOEJBQThCOztBQUUvQiIsInNvdXJjZXMiOlsid2VicGFjazovL25vdGljZS8uL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3Qvc2VydmVyL2Z1dHVyZS9yb3V0ZS1raW5kLmpzP2YxZjYiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHtcbiAgICB2YWx1ZTogdHJ1ZVxufSk7XG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJSb3V0ZUtpbmRcIiwge1xuICAgIGVudW1lcmFibGU6IHRydWUsXG4gICAgZ2V0OiBmdW5jdGlvbigpIHtcbiAgICAgICAgcmV0dXJuIFJvdXRlS2luZDtcbiAgICB9XG59KTtcbnZhciBSb3V0ZUtpbmQ7XG4oZnVuY3Rpb24oUm91dGVLaW5kKSB7XG4gICAgUm91dGVLaW5kWy8qKlxuICAgKiBgUEFHRVNgIHJlcHJlc2VudHMgYWxsIHRoZSBSZWFjdCBwYWdlcyB0aGF0IGFyZSB1bmRlciBgcGFnZXMvYC5cbiAgICovIFwiUEFHRVNcIl0gPSBcIlBBR0VTXCI7XG4gICAgUm91dGVLaW5kWy8qKlxuICAgKiBgUEFHRVNfQVBJYCByZXByZXNlbnRzIGFsbCB0aGUgQVBJIHJvdXRlcyB1bmRlciBgcGFnZXMvYXBpL2AuXG4gICAqLyBcIlBBR0VTX0FQSVwiXSA9IFwiUEFHRVNfQVBJXCI7XG4gICAgUm91dGVLaW5kWy8qKlxuICAgKiBgQVBQX1BBR0VgIHJlcHJlc2VudHMgYWxsIHRoZSBSZWFjdCBwYWdlcyB0aGF0IGFyZSB1bmRlciBgYXBwL2Agd2l0aCB0aGVcbiAgICogZmlsZW5hbWUgb2YgYHBhZ2Uue2osdH1zeyx4fWAuXG4gICAqLyBcIkFQUF9QQUdFXCJdID0gXCJBUFBfUEFHRVwiO1xuICAgIFJvdXRlS2luZFsvKipcbiAgICogYEFQUF9ST1VURWAgcmVwcmVzZW50cyBhbGwgdGhlIEFQSSByb3V0ZXMgYW5kIG1ldGFkYXRhIHJvdXRlcyB0aGF0IGFyZSB1bmRlciBgYXBwL2Agd2l0aCB0aGVcbiAgICogZmlsZW5hbWUgb2YgYHJvdXRlLntqLHR9c3sseH1gLlxuICAgKi8gXCJBUFBfUk9VVEVcIl0gPSBcIkFQUF9ST1VURVwiO1xufSkoUm91dGVLaW5kIHx8IChSb3V0ZUtpbmQgPSB7fSkpO1xuXG4vLyMgc291cmNlTWFwcGluZ1VSTD1yb3V0ZS1raW5kLmpzLm1hcCJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./node_modules/next/dist/server/future/route-kind.js\n");
 
+/***/ }),
 
-const PagesAPIRouteModule = pages_api_module.PagesAPIRouteModule;
-// Import the userland code.
-// @ts-expect-error - replaced by webpack/turbopack loader
+/***/ "(api)/./node_modules/next/dist/server/future/route-modules/pages-api/module.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/next/dist/server/future/route-modules/pages-api/module.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-// Re-export the handler (should be the default export).
-/* harmony default export */ const next_route_loaderkind_PAGES_API_page_2Fapi_2Fcontent_preferredRegion_absolutePagePath_private_next_pages_2Fapi_2Fcontent_tsx_middlewareConfigBase64_e30_3D_ = ((0,helpers/* hoist */.l)(content_namespaceObject, "default"));
-// Re-export config.
-const config = (0,helpers/* hoist */.l)(content_namespaceObject, "config");
-// Create and export the route module that will be consumed.
-const routeModule = new PagesAPIRouteModule({
-    definition: {
-        kind: route_kind/* RouteKind */.x.PAGES_API,
-        page: "/api/content",
-        pathname: "/api/content",
-        // The following aren't used in production.
-        bundlePath: "",
-        filename: ""
-    },
-    userland: content_namespaceObject
-});
-
-//# sourceMappingURL=pages-api.js.map
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n0 && (0);\nfunction _export(target, all) {\n    for(var name in all)Object.defineProperty(target, name, {\n        enumerable: true,\n        get: all[name]\n    });\n}\n_export(exports, {\n    PagesAPIRouteModule: function() {\n        return PagesAPIRouteModule;\n    },\n    default: function() {\n        return _default;\n    }\n});\nconst _routemodule = __webpack_require__(/*! ../route-module */ \"../route-module?407b\");\nconst _node = __webpack_require__(/*! ../../../api-utils/node */ \"../../../api-utils/node\");\nclass PagesAPIRouteModule extends _routemodule.RouteModule {\n    /**\n   *\n   * @param req the incoming server request\n   * @param res the outgoing server response\n   * @param context the context for the render\n   */ async render(req, res, context) {\n        await (0, _node.apiResolver)(req, res, context.query, this.userland, {\n            ...context.previewProps,\n            revalidate: context.revalidate,\n            trustHostHeader: context.trustHostHeader,\n            allowedRevalidateHeaderKeys: context.allowedRevalidateHeaderKeys,\n            hostname: context.hostname\n        }, context.minimalMode, context.dev, context.page);\n    }\n}\nconst _default = PagesAPIRouteModule;\n\n//# sourceMappingURL=module.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L3NlcnZlci9mdXR1cmUvcm91dGUtbW9kdWxlcy9wYWdlcy1hcGkvbW9kdWxlLmpzIiwibWFwcGluZ3MiOiJBQUFhO0FBQ2IsOENBQTZDO0FBQzdDO0FBQ0EsQ0FBQyxFQUFDO0FBQ0YsTUFBTSxDQUdMO0FBQ0Q7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0EsQ0FBQztBQUNELHFCQUFxQixtQkFBTyxDQUFDLDZDQUFpQjtBQUM5QyxjQUFjLG1CQUFPLENBQUMsd0RBQXlCO0FBQy9DO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FBUztBQUNUO0FBQ0E7QUFDQTs7QUFFQSIsInNvdXJjZXMiOlsid2VicGFjazovL25vdGljZS8uL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3Qvc2VydmVyL2Z1dHVyZS9yb3V0ZS1tb2R1bGVzL3BhZ2VzLWFwaS9tb2R1bGUuanM/MjY3MiJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwge1xuICAgIHZhbHVlOiB0cnVlXG59KTtcbjAgJiYgKG1vZHVsZS5leHBvcnRzID0ge1xuICAgIFBhZ2VzQVBJUm91dGVNb2R1bGU6IG51bGwsXG4gICAgZGVmYXVsdDogbnVsbFxufSk7XG5mdW5jdGlvbiBfZXhwb3J0KHRhcmdldCwgYWxsKSB7XG4gICAgZm9yKHZhciBuYW1lIGluIGFsbClPYmplY3QuZGVmaW5lUHJvcGVydHkodGFyZ2V0LCBuYW1lLCB7XG4gICAgICAgIGVudW1lcmFibGU6IHRydWUsXG4gICAgICAgIGdldDogYWxsW25hbWVdXG4gICAgfSk7XG59XG5fZXhwb3J0KGV4cG9ydHMsIHtcbiAgICBQYWdlc0FQSVJvdXRlTW9kdWxlOiBmdW5jdGlvbigpIHtcbiAgICAgICAgcmV0dXJuIFBhZ2VzQVBJUm91dGVNb2R1bGU7XG4gICAgfSxcbiAgICBkZWZhdWx0OiBmdW5jdGlvbigpIHtcbiAgICAgICAgcmV0dXJuIF9kZWZhdWx0O1xuICAgIH1cbn0pO1xuY29uc3QgX3JvdXRlbW9kdWxlID0gcmVxdWlyZShcIi4uL3JvdXRlLW1vZHVsZVwiKTtcbmNvbnN0IF9ub2RlID0gcmVxdWlyZShcIi4uLy4uLy4uL2FwaS11dGlscy9ub2RlXCIpO1xuY2xhc3MgUGFnZXNBUElSb3V0ZU1vZHVsZSBleHRlbmRzIF9yb3V0ZW1vZHVsZS5Sb3V0ZU1vZHVsZSB7XG4gICAgLyoqXG4gICAqXG4gICAqIEBwYXJhbSByZXEgdGhlIGluY29taW5nIHNlcnZlciByZXF1ZXN0XG4gICAqIEBwYXJhbSByZXMgdGhlIG91dGdvaW5nIHNlcnZlciByZXNwb25zZVxuICAgKiBAcGFyYW0gY29udGV4dCB0aGUgY29udGV4dCBmb3IgdGhlIHJlbmRlclxuICAgKi8gYXN5bmMgcmVuZGVyKHJlcSwgcmVzLCBjb250ZXh0KSB7XG4gICAgICAgIGF3YWl0ICgwLCBfbm9kZS5hcGlSZXNvbHZlcikocmVxLCByZXMsIGNvbnRleHQucXVlcnksIHRoaXMudXNlcmxhbmQsIHtcbiAgICAgICAgICAgIC4uLmNvbnRleHQucHJldmlld1Byb3BzLFxuICAgICAgICAgICAgcmV2YWxpZGF0ZTogY29udGV4dC5yZXZhbGlkYXRlLFxuICAgICAgICAgICAgdHJ1c3RIb3N0SGVhZGVyOiBjb250ZXh0LnRydXN0SG9zdEhlYWRlcixcbiAgICAgICAgICAgIGFsbG93ZWRSZXZhbGlkYXRlSGVhZGVyS2V5czogY29udGV4dC5hbGxvd2VkUmV2YWxpZGF0ZUhlYWRlcktleXMsXG4gICAgICAgICAgICBob3N0bmFtZTogY29udGV4dC5ob3N0bmFtZVxuICAgICAgICB9LCBjb250ZXh0Lm1pbmltYWxNb2RlLCBjb250ZXh0LmRldiwgY29udGV4dC5wYWdlKTtcbiAgICB9XG59XG5jb25zdCBfZGVmYXVsdCA9IFBhZ2VzQVBJUm91dGVNb2R1bGU7XG5cbi8vIyBzb3VyY2VNYXBwaW5nVVJMPW1vZHVsZS5qcy5tYXAiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./node_modules/next/dist/server/future/route-modules/pages-api/module.js\n");
 
 /***/ })
 
@@ -185,7 +100,7 @@ const routeModule = new PagesAPIRouteModule({
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [172], () => (__webpack_exec__(6696)));
+var __webpack_exports__ = (__webpack_exec__("(api)/./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES_API&page=%2Fapi%2Fcontent&preferredRegion=&absolutePagePath=.%2Fsrc%2Fpages%2Fapi%2Fcontent.tsx&middlewareConfigBase64=e30%3D!"));
 module.exports = __webpack_exports__;
 
 })();

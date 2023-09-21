@@ -16,6 +16,7 @@ interface contentData{
 }
 
 export default function ListPage(props: { params: { pageNum: number; }; searchParams: { search: string; }; }) {
+  
 
     const router = useRouter();
 
@@ -28,18 +29,23 @@ export default function ListPage(props: { params: { pageNum: number; }; searchPa
     
 
     useEffect(() => {
-      axios.post("/api/content").then(response => {
+      // 로드시 페이지 번호으로 데이터 요청
       let url = `/api/content?pagenum=${pageNum}`;
       if(searchPram != undefined){
         url +=`&search=${encodeURIComponent(props.searchParams.search)}`
       }
-      // console.log(searchPram)
-        // console.log(url)
+
         axios.get(url).then(response => {
             let data = response.data;
-            setcon(data.content);
-            setCount(data.datacount);
-        });
+            setcon(data.content);//데이터
+            setCount(data.datacount);//총데이터로 페이지 갯수 생성
+            console.log(data.content.length)
+            if(1!=pageNum){
+              if(data.content.length == 0){
+                let lastPage =Math.ceil(data.datacount/10)
+                router.push(`/list/${lastPage}`) //1page 에선미구동. 최대 페이지보다 많은 경로일 경우 마지막 페이지로 이동 
+              }
+            }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchPram]);

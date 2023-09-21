@@ -3,16 +3,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const client = new PrismaClient();
 
-export default async function handler( req: NextApiRequest ,res: NextApiResponse) {
-    console.log("포스트");
-    console.log(req.body)
-
-    
+export default async function handler( req: NextApiRequest ,res: NextApiResponse) { 
     try {
-        console.log(req.body)
-
         if(req.body.conid == 'new'){
-            console.log( "새글")
             const newNotice = await client.post.create({
                 data: {
                     title: req.body.title,
@@ -23,7 +16,6 @@ export default async function handler( req: NextApiRequest ,res: NextApiResponse
             res.json(newNotice);
 
         }else{
-            console.log( "헌글")
             const newNotice = await client.post.update({
                 where:{
                     id:req.body.conid
