@@ -18,6 +18,7 @@ export default function Edit(props: { params: { edit: string; }; }){
     const router = useRouter()
     // const editorRef = useRef<Editor | null>(null);
 
+
     useEffect(() => {
         if(conId != "new"){ //새글 작성이 아닐 경우 수정할 데이터 요청 
                 const url = `/api/content?pageId=${conId}`;
@@ -48,14 +49,17 @@ export default function Edit(props: { params: { edit: string; }; }){
     date = `${year}. ${month}. ${day}`
 
 
-
+ //로딩창 띄우기.. 
+    const [lodingBool , setBool] = useState(false)
     const [consText, setText] = useState(""); 
-    const noticePost = () => {
-         axios.post('/api/notice',{
+    const noticePost = async () => {
+        setBool(true)
+        await axios.post('/api/notice',{
             conid : conId,
             title : title,
             content : consText
         }).then(respone=>{
+            setBool(false)
             // console.log(respone.data.id);
             router.push(`/detail/${respone.data.id}`)
         })
@@ -69,8 +73,22 @@ export default function Edit(props: { params: { edit: string; }; }){
             setText(e)
         }
 
+        // 로딩
+
+        let pLoding =  lodingBool ? "postLoding" : "blind"
+
     return(
         <div className='wrap'>
+
+//로딩.. 화면 잠금 
+            <div id="lodingBox" className = {pLoding}>                
+                <div className="dot-container">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                </div>
+            </div>
+
             <div className='inner'>
                 <div className='detailtop'>
                     <h4>공지사항</h4>

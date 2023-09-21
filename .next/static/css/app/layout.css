@@ -388,5 +388,17 @@ transform: translate(-50%, -50%);
 
 
 
+.postLoding{
+  z-index: 100;
+  position: fixed !important; top: 0;left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000007a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 

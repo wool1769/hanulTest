@@ -29,9 +29,6 @@ export default async function handler( req: NextApiRequest ,res: NextApiResponse
             res.json(newNotice);
 
         }
-        
-
-        res.json("테스트중");
     } catch (error) {
         res.json({ error: "서버 오류 발생" });
     }
