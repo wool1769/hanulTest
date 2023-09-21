@@ -50,8 +50,8 @@ export default function Edit(props: { params: { edit: string; }; }){
 
 
     const [consText, setText] = useState(""); 
-    const noticePost = async () => {
-        await axios.post('/api/notice',{
+    const noticePost = () => {
+         axios.post('/api/notice',{
             conid : conId,
             title : title,
             content : consText
