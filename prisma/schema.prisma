@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "mongodb"
-  url = "mongodb+srv://admin:Qwer!234@cluster0.nem2use.mongodb.net/notice?retryWrites=true&w=majority&appName=AtlasApp"
+  url = "mongodb+srv://admin:ETgRL8H9kDi3lDj2@cluster0.twvyn6s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 }
 
